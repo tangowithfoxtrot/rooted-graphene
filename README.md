@@ -27,7 +27,7 @@ See [grapheneos.org/releases](https://grapheneos.org/releases) for that.
 
 ### Unreleased
 
-* Discontinued all devices but Pixel 6 and Pixel 9 Pro, because the amount of GitHub actions minutes required for 
+* Discontinued all devices but the Pixel 9, because the amount of GitHub actions minutes required for 
   maintaining that many devices exceed my spending limit.  
   Please fork this repo and build your own OTAs.
 * Switch from custota signature file version 1 to 2 (introduced with [custota 5](https://github.com/chenxiaolong/Custota/blob/v5.0/CHANGELOG.md) in october 2024)
