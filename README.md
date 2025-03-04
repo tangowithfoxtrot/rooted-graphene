@@ -10,8 +10,7 @@ Allows for switching between magisk and rootless via OTA upgrades.
 
 ## Supported devices
 
-* Pixel 9 Pro
-* Pixel 6
+* Pixel 9
 
 All other devices have been discontinued because the amount of GitHub actions minutes required for maintaining that 
 many devices exceed my spending limit.  
