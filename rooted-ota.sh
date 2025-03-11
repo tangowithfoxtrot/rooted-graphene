@@ -463,7 +463,7 @@ function createOtaServerData() {
     
     local args=()
     args+=("--file" ".tmp/${flavor}/${DEVICE_ID}.json")
-    # e.g. https://github.com/schnatterer/rooted-graphene/releases/download/2023121200-v26.4-e54c67f/oriole-ota_update-2023121200.zip
+    # e.g. https://github.com/tangowithfoxtrot/rooted-graphene/releases/download/2023121200-v26.4-e54c67f/oriole-ota_update-2023121200.zip
     # Instead of constructing the location we could also parse it from the upload response
     args+=("--location" "https://github.com/$GITHUB_REPO/releases/download/$OTA_VERSION/$POTENTIAL_ASSET_NAME")
   

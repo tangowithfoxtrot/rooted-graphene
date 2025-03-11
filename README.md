@@ -101,7 +101,7 @@ TLDR:
 
 Once GrapheneOS is installed
 
-* Download the [OTA from releases](https://github.com/schnatterer/rooted-graphene/releases/) with **the same version** that you just installed. 
+* Download the [OTA from releases](https://github.com/tangowithfoxtrot/rooted-graphene/releases/) with **the same version** that you just installed. 
 * Obtain latest `fastboot`
 * Install [avbroot](https://github.com/chenxiaolong/avbroot)
 * Extract the partition images from the patched OTA that are different from the original.
@@ -135,7 +135,7 @@ Once GrapheneOS is installed
     ```bash
     fastboot reboot-bootloader
     fastboot erase avb_custom_key
-    curl -s https://raw.githubusercontent.com/schnatterer/rooted-graphene/main/avb_pkmd.bin > avb_pkmd.bin
+    curl -s https://raw.githubusercontent.com/tangowithfoxtrot/rooted-graphene/main/avb_pkmd.bin > avb_pkmd.bin
     fastboot flash avb_custom_key avb_pkmd.bin
     ```
 * **[Optional]** Before locking the bootloader, reboot into Android once to confirm that everything is properly signed.  
@@ -154,14 +154,14 @@ Once GrapheneOS is installed
 * Confirm by pressing volume down and then power. Then reboot.
 * Remember: **Do not uncheck `OEM unlocking`!** (to avoid [hard-bricking](https://github.com/chenxiaolong/avbroot/blob/v3.12.0/README.md#warnings-and-caveats))  
   That is, in Graphene's startup wizard, leave this box unticked 👇️  
-  <img src="https://github.com/schnatterer/rooted-graphene/assets/1824962/6ef90b46-2070-4d08-80d4-5f4a0e749cbe" width="216" height="480" alt="Screenshot of GrapheneOS recommending to lock">  
+  <img src="https://github.com/tangowithfoxtrot/rooted-graphene/assets/1824962/6ef90b46-2070-4d08-80d4-5f4a0e749cbe" width="216" height="480" alt="Screenshot of GrapheneOS recommending to lock">  
   Note: The OTA contains [OEMUnlockOnBoot](https://github.com/chenxiaolong/OEMUnlockOnBoot), so OEM locking should be impossible.  
   Still, better safe than sorry, keep it unlocked.
 
 #### Set up OTA updates
 
 * [Disable system updater app](https://github.com/chenxiaolong/avbroot#ota-updates).
-* Open Custota app and set the OTA server URL to point to this OTA server: https://schnatterer.github.io/rooted-graphene/magisk
+* Open Custota app and set the OTA server URL to point to this OTA server: https://tangowithfoxtrot.github.io/rooted-graphene/magisk
 
 Alternatively you could do updates manually via `adb sideload`:
 * reboot the device and begin holding the volume down button until it boots up into the bootloader interface
@@ -175,12 +175,12 @@ Alternatively you could do updates manually via `adb sideload`:
 
 To remove root, you can change to the "rootless" flavor.
 
-To do so, set the following URL in custota: https://schnatterer.github.io/rooted-graphene/rootless/
+To do so, set the following URL in custota: https://tangowithfoxtrot.github.io/rooted-graphene/rootless/
 And then upgrade.  
 (if custota should tell you that you're on the latest version, you can force an upgrade by long pressing `Version` and 
 then selecting `Allow reinstall`).
 
-If you want to gain root again, just switch back to this URL in custota: https://schnatterer.github.io/rooted-graphene/magisk/
+If you want to gain root again, just switch back to this URL in custota: https://tangowithfoxtrot.github.io/rooted-graphene/magisk/
 And then upgrade.
 
 ## Script
@@ -212,7 +212,7 @@ See GitHub actions for automating this:
 
 ```shell
 GITHUB_TOKEN=gh... \
-GITHUB_REPO=schnatterer/rooted-graphene \
+GITHUB_REPO=tangowithfoxtrot/rooted-graphene \
 DEVICE_ID=oriole \
 MAGISK_PREINIT_DEVICE=metadata \
 bash -c '. rooted-ota.sh && createAndReleaseRootedOta'
@@ -222,15 +222,15 @@ bash -c '. rooted-ota.sh && createAndReleaseRootedOta'
 
 As [magisk does not seem a perfect match for GrapheneOS](https://github.com/topjohnwu/Magisk/pull/7606), you might be looking for alternatives.
 
-I had a first go at [patching kernelsu](https://github.com/schnatterer/rooted-graphene/commit/201b6dc939ab3a202694fa892de6db2840e5c3d6) which booted but did not provide root. 
+I had a first go at [patching kernelsu](https://github.com/tangowithfoxtrot/rooted-graphene/commit/201b6dc939ab3a202694fa892de6db2840e5c3d6) which booted but did not provide root. 
 Patching kernelsu is much more complex that patching magisk. 
 It might even be impossible to run GrapheneOS with it, without building GrapheneOS from scratch.
 Also, some parts of kernelsu seem to be closed source, which feels suspicious and inappropriate for a tool with so much influence on your device.
 
 Another alternative might be to use a version of magisk (like [the one maintained by pixincreate](https://github.com/pixincreate/Magisk)) that contains patches to make zygisk work.  
-This still has some limitations, like [certain modules checking for magisk's signature won't work](https://github.com/schnatterer/rooted-graphene/commit/da0cd817c2665798df46df1aeb7caef9d98b79d0#r141746606). 
+This still has some limitations, like [certain modules checking for magisk's signature won't work](https://github.com/tangowithfoxtrot/rooted-graphene/commit/da0cd817c2665798df46df1aeb7caef9d98b79d0#r141746606). 
 
-Another option [might be](https://github.com/schnatterer/rooted-graphene/pull/73#issuecomment-2666870886) Kitsune magisk.
+Another option [might be](https://github.com/tangowithfoxtrot/rooted-graphene/pull/73#issuecomment-2666870886) Kitsune magisk.
 
 In general, using [magisk and especially zygisk with Graphene seems to have the risk of breaking things with every new release](https://github.com/chenxiaolong/avbroot/issues/213#issuecomment-1986637884).  
 It's good to have the rootless version as a fallback! 
@@ -252,12 +252,12 @@ SKIP_CLEANUP=true DEVICE_ID=oriole MAGISK_PREINIT_DEVICE='metadata' bash -c '. r
 # Test only releasing
   GITHUB_TOKEN=gh... \
  DEBUG=true \
-GITHUB_REPO=schnatterer/rooted-graphene \
+GITHUB_REPO=tangowithfoxtrot/rooted-graphene \
 OTA_VERSION=2025021100 \
 RELEASE_ID='' \
   bash -c '. rooted-ota.sh && releaseOta'
 # Test only GH pages deployment
-GITHUB_REPO=schnatterer/rooted-graphene \
+GITHUB_REPO=tangowithfoxtrot/rooted-graphene \
 DEVICE_ID=oriole \
 MAGISK_PREINIT_DEVICE=metadata \
   bash -c '. rooted-ota.sh && findLatestVersion && checkBuildNecessary && createOtaServerData && uploadOtaServerData'
@@ -265,7 +265,7 @@ MAGISK_PREINIT_DEVICE=metadata \
 
 # e2e test
   GITHUB_TOKEN=gh... \
-GITHUB_REPO=schnatterer/rooted-graphene \
+GITHUB_REPO=tangowithfoxtrot/rooted-graphene \
 DEVICE_ID=oriole \
 MAGISK_PREINIT_DEVICE=metadata \
 SKIP_CLEANUP=true \
