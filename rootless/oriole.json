@@ -1,7 +1,0 @@
-{
-  "version": 2,
-  "full": {
-    "location_ota": "https://github.com/tangowithfoxtrot/rooted-graphene/releases/download/2025030900/oriole-2025030900-4c65688-rootless.zip",
-    "location_csig": "https://github.com/tangowithfoxtrot/rooted-graphene/releases/download/2025030900/oriole-2025030900-4c65688-rootless.zip.csig"
-  }
-}

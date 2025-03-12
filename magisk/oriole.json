@@ -1,7 +1,0 @@
-{
-  "version": 2,
-  "full": {
-    "location_ota": "https://github.com/tangowithfoxtrot/rooted-graphene/releases/download/2025030900/oriole-2025030900-4c65688-magisk-v28.1.zip",
-    "location_csig": "https://github.com/tangowithfoxtrot/rooted-graphene/releases/download/2025030900/oriole-2025030900-4c65688-magisk-v28.1.zip.csig"
-  }
-}
